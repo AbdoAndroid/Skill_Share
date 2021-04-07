@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Skill Share</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full name</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="password">Password</string>
+    <string name="ifHasAccount">Already has an account? Login</string>
+    <string name="retype_password">Retype password</string>
+    <string name="login">Login</string>
+    <string name="new_user_create_new_account">New user? Create a new account</string>
+    <string name="old_password">Old password</string>
+    <string name="new_password">New password</string>
+    <string name="retype_new_password">Retype new password</string>
+    <string name="confirm">Confirm</string>
+    <string name="free_time">Free time</string>
+    <string name="desc">What I can do</string>
+    <string name="post">Post</string>
+    <string name="near_only">nearby only</string>
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "934391598475",
+    "project_id": "skillshare-codeit",
+    "storage_bucket": "skillshare-codeit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934391598475:android:3f9abeaa618192b851338e",
+        "android_client_info": {
+          "package_name": "com.example.skillshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934391598475-o07ss3at2v6btjrmm3bhqateqcrkjjq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skillshare",
+            "certificate_hash": "7503e9c4afb4c7abde6e52ae3f65743f819a3081"
+          }
+        },
+        {
+          "client_id": "934391598475-nvvaadkpcmm7ftoul03022hqk22d7uep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnljlNp_qkbU4BO9RYHN-lng-NYjuDyS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934391598475-nvvaadkpcmm7ftoul03022hqk22d7uep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
