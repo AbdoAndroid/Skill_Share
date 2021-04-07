@@ -44,6 +44,10 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void post_OnClick(View view) {
+        if (_location.trim().equals("")) {
+            Toast.makeText(this, "The location can't be accessed", Toast.LENGTH_LONG).show();
+            this.onBackPressed();
+        }
         post=new Post(dataRefPost.push().getKey(),sharedPreferences.getString("id","none"),_location,
                 et_time.getText().toString(),et_desc.getText().toString());
         //injecting the post into the database

@@ -108,23 +108,11 @@ public class HomeActivity extends AppCompatActivity {
                     Collection<Map> posts=  data.values();
                     //Log.i("posts",data.toString());
                     _nearbyPosts=new ArrayList<>();
-                    Location current=new Location("current");
-                    current.setLatitude(Double.parseDouble(_location.split(",")[0]));
-                    current.setLongitude(Double.parseDouble(_location.split(",")[1]));
-                    String[] location_a;
-                    Location aLoc;
                     if (posts.size()>0)
                         for (Map<String,String> item:posts) {
                             Post post=new Post(item.get("id"), item.get("user"), item.get("location"),
                                     item.get("time"), item.get("description"));
                                 _posts.add(post);
-                            location_a=post.getLocation().split(",");
-                            aLoc=new Location("b");
-                            aLoc.setLongitude(Double.parseDouble(location_a[1]));
-                            aLoc.setLatitude(Double.parseDouble(location_a[0]));
-                            if (current.distanceTo(aLoc)<5000){
-                                _nearbyPosts.add(post);
-                            }
                         }
                     //Log.i("posts", _posts.toString());
                     //Toast.makeText(HomeActivity.this, ""+_posts.size(), Toast.LENGTH_SHORT).show();
@@ -143,13 +131,38 @@ public class HomeActivity extends AppCompatActivity {
         nearbySwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (nearbySwitch.isEnabled()){
+
+                if(nearbySwitch.isEnabled()){
+                    String[] location_a;
+                    Location aLoc;
+                    _nearbyPosts=new ArrayList<>();
+                    //creating the list to view
+                    if (_posts.size()>0)
+                        for (Post item:_posts) {
+                            location_a=item.getLocation().split(",");
+                            aLoc=new Location("b");
+                            aLoc.setLongitude(Double.parseDouble(location_a[1]));
+                            aLoc.setLatitude(Double.parseDouble(location_a[0]));
+                            Location current=new Location("current");
+                            try {
+                                current.setLatitude(Double.parseDouble(_location.split(",")[0]));
+                                current.setLongitude(Double.parseDouble(_location.split(",")[1]));
+                            }catch (Exception e){
+                                getLastLocation();
+                                current.setLatitude(Double.parseDouble(_location.split(",")[0]));
+                                current.setLongitude(Double.parseDouble(_location.split(",")[1]));
+                            }
+                            if (current.distanceTo(aLoc)<5000){
+                                _nearbyPosts.add(item);
+                            }
+                        }
+
+
                     adapter=new PostAdapter(HomeActivity.this,_nearbyPosts);
-                    listView.setAdapter(adapter);
                 }else {
                     adapter=new PostAdapter(HomeActivity.this,_posts);
-                    listView.setAdapter(adapter);
                 }
+                listView.setAdapter(adapter);
             }
         });
 
@@ -186,6 +199,11 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+
+
+    /*
+    below animation migration functions
+     */
 
     private void setClickable() {
         if (!isClicked){
@@ -233,15 +251,6 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(loginIntent);
         finish();
     }
-
-
-
-
-
-
-
-
-
 
 
 
